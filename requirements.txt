@@ -1,2 +1,6 @@
 psycopg2-binary
 python-dotenv
+pypdf
+sentence-transformers
+qdrant-client
+rank-bm25
