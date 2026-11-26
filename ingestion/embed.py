@@ -45,6 +45,14 @@ def embed_source(chunks,source_name,batch_size=256):
         )
         print(f"{{source_name}}: embedded {i+len(batch_points)}/{len(points)} chunks")
 
+
+def delete_point(doc_id):
+    point_id=doc_id_to_point_id(doc_id)
+    qdrant.delete(
+        collection_name=COLLECTION_NAME,
+        points_selector={"ids":[point_id]}
+    )
+
 if __name__=="__main__":
     check_collection()
     print(f"Embedding products...{embed_source(normalize_products(), 'products')} products embedded.")
